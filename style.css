@@ -1,7 +1,7 @@
 *{
     margin: 0px;
     padding: 0px;
-    border: 1px dotted red;
+    /* border: 1px dotted red; */
 }
 #wrapper{
     margin: auto;
@@ -28,4 +28,9 @@ ul li{
 }
 span{
     width: 90px;
+}
+article div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

@@ -5,6 +5,123 @@
         <title>jQuery Functions</title>
         <meta name="description" content="Internet Assignment">
         <link rel="stylesheet" href="style.css">
+        <style>
+            .red{
+                background: red;
+            }
+        </style>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $('input').hide();
+                $('label').hide();
+                $('header button').click(function(){
+                    $('header').addClass("red");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#hide').click(function(){
+                    $('article img').hide("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#show').click(function(){
+                    $('article img').show("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#toggle').click(function(){
+                    $('article img').toggle("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#slideDown').click(function(){
+                    $('article img').slideDown("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#slideUp').click(function(){
+                    $('article img').slideUp("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#slideToggle').click(function(){
+                    $('article img').slideToggle("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#fadeIn').click(function(){
+                    $('article img').fadeIn("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#fadeOut').click(function(){
+                    $('article img').fadeOut("slow");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+
+                $('#addClass').click(function(){
+                    alert("Click the button in the heading");
+                });
+
+
+                $('#before').click(function(){
+                    $('article img').before("I am before the image");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                $('#after').click(function(){
+                    $('article img').after("I am after the image");
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+                 $('#append').click(function(){
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                    $('article span').append("<br>I'm added here");
+                });
+
+                $('#html').click(function(){
+                    var $input = $( this );
+                    $('article span').html(" " + $input.prop("id") + " <br> html can input html tag...like <b>boldtest</b>");
+                });
+                $('#text').click(function(){
+                    var $input = $( this );
+                    $('article span').text(" " + $input.prop("id") + " <br> But you can't put in html tags...like <b>boldtest</b>");
+                });
+
+                $('#attr').click(function(){
+                    $('input').show();
+                    $('label').show();
+                    var $input = $( this );
+                    $('article span').html($input.prop("id"));
+                });
+
+                function displayVals() {
+                        var singleValues = $( "#single" ).val();
+                        var multipleValues = $( "#multiple" ).val() || [];
+                        $( "p" ).last().html( "<b>Single:</b> " + singleValues + " <b>Multiple:</b> " + multipleValues.join( ", ") );
+                }
+                $( "select" ).change( displayVals );
+                displayVals();
+
+                //data
+                $('#data').click(function(){
+                    var $input = $( this );
+                    $('article span').html(" " + $input.prop("id") + "<br>");
+                    $('article').data('firstVar',"32");
+                    $( "article p" ).last().html("First Data Variable: " + $('article').data('firstVar'));
+                    // $('article').data('meaningOfLife',42);
+                    // $('article').data('lastVar',"This entry will output when data() is called with no parameters");
+                    // /*$('article p').last().html*/alert(/*"All Variable: <br>"*/ + $('article').data());
+                });
+
+            })
+        </script>
     </head>
     <body>
         <div id="wrapper">
@@ -19,43 +136,43 @@
                         <li>
                             Viewing an element
                             <ul>
-                                <li><strong>.hide</strong></li>
-                                <li><strong>.show</strong></li>
-                                <li><strong>.toggle</strong></li>
-                                <li><strong>.slideDown</strong></li>
-                                <li><strong>.slideUp</strong></li>
-                                <li><strong>.slideToggle</strong></li>
-                                <li><strong>.fadeIn</strong></li>
-                                <li><strong>.fadeOut</strong></li>
+                                <li id="hide"><strong>.hide</strong></li>
+                                <li id="show"><strong>.show</strong></li>
+                                <li id="toggle"><strong>.toggle</strong></li>
+                                <li id="slideDown"><strong>.slideDown</strong></li>
+                                <li id="slideUp"><strong>.slideUp</strong></li>
+                                <li id="slideToggle"><strong>.slideToggle</strong></li>
+                                <li id="fadeIn"><strong>.fadeIn</strong></li>
+                                <li id="fadeOut"><strong>.fadeOut</strong></li>
                             </ul>
                         </li>
                         <li><strong>.addClass</strong></li> <!--see above button alert when clicking-->
                         <li>
                             Adds Something Somewhere
                             <ul>
-                                <li><strong>.before</strong></li>
-                                <li><strong>.after</strong></li>
-                                <li><strong>.append</strong></li>
+                                <li id="before"><strong>.before</strong></li>
+                                <li id="after"><strong>.after</strong></li>
+                                <li id="append"><strong>.append</strong></li>
                             </ul>
                         </li>
                         <li>
-                            Edditing and Returning Content
+                            Editing and Returning Content
                             <ul>
                                 <li>
-                                    Editting content
+                                    Editing content
                                     <ul>
-                                        <li><strong>.html</strong></li>
-                                        <li><strong>.text</strong></li>
+                                        <li id="html"><strong>.html</strong></li>
+                                        <li id="text"><strong>.text</strong></li>
                                     </ul>
                                 </li>
                                 <li>
-                                    Returns Something depending on the funciton
+                                    Returns Something depending on the function
                                     <ul>
-                                        <li><strong>.attr</strong></li> <!--outputs the initial value of this attribute in first matched element-->
-                                        <li><strong>.val</strong></li> <!--Get the current value of the first element in the set of matched elements.-->
+                                        <li id="attr"><strong>.attr</strong></li> <!--outputs the initial value of this attribute in first matched element-->
+                                        <li id="val"><strong>.val</strong></li> <!--Get the current value of the first element in the set of matched elements.-->
                                     </ul>
                                 </li>
-                                <li><strong>.data</strong></li></ul>
+                                <li id="data"><strong>.data</strong></li></ul>
                             </ul>
                         </li>
                     </ul>
@@ -69,7 +186,18 @@
                     </p>
                     <p></p>
 
-                    <!--jQuery attr example here-->
+                    <div>
+                        <select id="single">
+                            <option>Single</option>
+                            <option>Single2</option>
+                        </select>
+                            
+                        <select id="multiple" multiple="multiple">
+                            <option selected="selected">Multiple</option>
+                            <option>Multiple2</option>
+                            <option selected="selected">Multiple3</option>
+                        </select>
+                    </div>
 
                 </article>
             </div>
