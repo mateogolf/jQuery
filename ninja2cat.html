@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ninja2Cat</title>
+        <meta name="description" content="Ninja Morphs into CAT">
+        <link rel="stylesheet" href="ninja2cat-style.css">
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function(){
+        $('img').click(function(){
+            // var src = $(this).prop("src");
+            // // alert(src);
+            // var newsrc = "img/cat";
+            // for(let i = src.length-1;i>0;i--){
+            //     var piece = parseInt(src[i]);
+            //     // alert(piece);
+            //     if(!isNaN(piece)){
+            //         // alert(src[i]);
+            //         newsrc = newsrc + src[i] + ".png";
+            //         // alert(newsrc);
+            //         break;
+            //     }
+            // }
+            // $(this).prop("src",newsrc);//"img/cat" + src[i] + ".png");
+            // $(this).prop("alt","Now its "+ piece + " Cat Piece");
+            $(this).prop("src",$(this).attr("data-alt-src"));
+
+        });
+        
+    })
+</script>
+    </head>
+    <body>
+        <div id="images">
+            <img src="img/ninja0.png" data-alt-src="img/cat0.png" alt="0 Ninja Piece">
+            <img src="img/ninja1.png" data-alt-src="img/cat1.png" alt="1 Ninja Piece">
+            <img src="img/ninja2.png" data-alt-src="img/cat2.png" alt="2 Ninja Piece">
+            <img src="img/ninja3.png" data-alt-src="img/cat3.png" alt="3 Ninja Piece">
+            <img src="img/ninja4.png" data-alt-src="img/cat4.png" alt="4 Ninja Piece">
+        </div>
+    </body>
+</html>
