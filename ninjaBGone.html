@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Bye Ninja</title>
+        <meta name="description" content="Bye Ninja">
+        <link rel="stylesheet" href="ninjaBGone-style.css">
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+</script>
+<script>
+    $(document).ready(function(){
+        $('img').click(function(){
+            $(this).hide("slow");
+        });
+
+        $('button').click(function(){
+            $('img').show("slow");
+        });
+        
+    })
+</script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>jQuery Assignment 2</h1>
+            <div id="images">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+                <img src="dojocat.jpg" alt="dojo cat octopus">
+            </div>
+            <button>Reset</button>
+        </div>
+    </body>
+</html>
