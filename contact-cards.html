@@ -12,6 +12,7 @@
         </script>
         <script type="text/javascript">
             $(document).ready(function(){
+                var i = 0;
                 $('form').submit(function(e){
                     e.preventDefault();
                     var test = $( "#first_name").val();
@@ -29,20 +30,26 @@
                         alert("Input a description");
                         return false;
                     }
-                    
 
                     $('#cards').append("<div class='card'>" + //<p>TEST</p></div>");//+
                             "<h4>"+ $( "#first_name").val() + " " + $( "#last_name").val() + "</h4>" +
                             // "<img src="" alt=''>"
                             "<p>" + $( "#description").val() +"</p>"+
                         "</div>");
-                    $('p').hide();
+                    
+                    // $(this).children('p').hide();
                     $('.card').addClass("card")
-                        .on("click",function(){
-                            $('p').slideToggle("slow");
-                        });
+                    $('.card').on("click",function(){
+                        $(this).children('p').show("slow");
+                    });
+                    
+                    i++ //Increment after generating the id for each card
                     // return false;
+
                 })
+                // $('.card').on("click",function(){
+                //     $(this).children('p').show("slow");
+                // });
             })
         </script>
     </head>
