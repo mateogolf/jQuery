@@ -101,6 +101,16 @@
                     $('article span').html($input.prop("id"));
                 });
 
+                $( "input" )
+                    .change(function() {
+                        var $input = $( this );
+                        $( "p" )
+                        .last().html( ".attr( 'checked' ): <b>" + $input.attr( "id" ) + "</b><br>" +
+                        ".prop( 'checked' ): <b>" + $input.prop( "checked" ) + "</b><br>" +
+                        ".is( ':checked' ): <b>" + $input.is( ":checked" ) + "</b>" )
+                    .change();
+                })
+
                 function displayVals() {
                         var singleValues = $( "#single" ).val();
                         var multipleValues = $( "#multiple" ).val() || [];
