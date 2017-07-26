@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Contact Cards</title>
+        <meta name="description" content="Contact Cards">
+        <link rel="stylesheet" href="contact-cards-style.css">
+        <script type="text/javascript"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('form').submit(function(e){
+                    e.preventDefault();
+                    var test = $( "#first_name").val();
+                    if(test.length === 0){
+                        alert("Input a first name");
+                        return false;
+                    }
+                    test = $( "#last_name").val();
+                    if(test.length === 0){
+                        alert("Input a last name");
+                        return false;
+                    }
+                    test = $( "#description").val();
+                    if(test.length === 0){
+                        alert("Input a description");
+                        return false;
+                    }
+                    
+
+                    $('#cards').append("<div class='card'>" + //<p>TEST</p></div>");//+
+                            "<h4>"+ $( "#first_name").val() + " " + $( "#last_name").val() + "</h4>" +
+                            // "<img src="" alt=''>"
+                            "<p>" + $( "#description").val() +"</p>"+
+                        "</div>");
+                    $('p').hide();
+                    $('.card').addClass("card")
+                        .on("click",function(){
+                            $('p').slideToggle("slow");
+                        });
+                    // return false;
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form>
+                <h1>Add Contact</h1>
+                <table>
+                    <tr>
+                        <td><label for="first_name">First Name:</label></td>
+                            <td></td> 
+                        <td><input type="text" id="first_name" name="first_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="last_name">Last Name: </label></td>
+                            <td></td> 
+                        <td><input type="text" id="last_name" name="last_name"></td>
+                    </tr>
+                </table>
+                <label for="description">Description: </label>
+                <input type="textarea" id="description" name="description">
+                <input type="submit" value="Submit">
+            </form>
+            <div id="cards">
+            </div>
+        </div>
+    </body>
+</html>
