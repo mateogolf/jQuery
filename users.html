@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>Users</title>
         <meta name="description" content="Users advanced jQuery practice">
-        <link rel="stylesheet" href="users-style.css"> 
+        <link rel="stylesheet" href="users-style.css">
         <script type="text/javascript"
             src="https://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -12,11 +12,32 @@
         </script>
         <script type="text/javascript">
             $(document).ready(function(){
+                // $("#Records").tablesorter();
                 $('form').submit(function(){
-                    // if(isNaN($( "#first_name" ).val())){
-                    //     alert("Input a first name");
-                    //     return false;
-                    // }
+                    var test = $( "#first_name").val();
+                    if(test.length === 0){
+                        alert("Input a first name");
+                        return false;
+                    }
+                    test = $( "#last_name").val();
+                    if(test.length === 0){
+                        alert("Input a last name");
+                        return false;
+                    }
+                    test = $( "#email").val();
+                    if(test.length === 0){
+                        alert("Input a email");
+                        return false;
+                    }
+                    if(test.indexOf("@") < 0 ){
+                        alert("Your email is not a valid email.  Input a valid email.");
+                        return false;
+                    }
+                    test = $( "#contact").val();
+                    if(test.length === 0){
+                        alert("Input a contact number");
+                        return false;
+                    }
                     
 
                     $('#Records tbody').append("<tr>" + 
@@ -25,6 +46,8 @@
                         "<td>" + $( "#email" ).val() + "</td>" + 
                         "<td>" + $( "#contact" ).val() + "</td>" + 
                         "</tr>");
+                    // $("#Records").tablesorter();
+                    // $('#Records tbody tr').css("border","1px solid black");
                     return false;
                 })
                 
@@ -32,7 +55,7 @@
         </script>
     </head>
     <body>
-        <table id="Records">
+        <table id="Records" class="tablesorter">
             <thead>
                 <tr>
                     <th>First Name</th>
@@ -44,6 +67,7 @@
             <tbody>
             </tbody>
         </table>
+        <h1>Add User</h1>
         <form>
             <table id="form">
                 <tbody>
