@@ -1,0 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#Records, #Records tr {
+    border: 1px solid black;
+}
